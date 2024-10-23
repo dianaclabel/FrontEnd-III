@@ -1,0 +1,17 @@
+.titleBox {
+  color: white;
+  background: darkblue;
+  padding: 30px;
+}
+
+.titleMain {
+  text-align: center;
+  font-size: 2em;
+  font-family: "Arial", "sans-serif";
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
