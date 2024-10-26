@@ -1,4 +1,4 @@
-export const goku = [
+export const personajes = [
   {
     id: 1,
     name: "Goku",
