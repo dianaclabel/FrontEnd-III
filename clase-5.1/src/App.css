@@ -1,0 +1,19 @@
+/* base css */
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.titleMain {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+.boxAdd {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

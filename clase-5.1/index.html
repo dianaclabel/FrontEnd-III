@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    </style>
+    <div class="wrapper">
+      <div>
+        <div>
+          <h3>Modo Input + Button</h3>
+          <input id="txt" type="text" />
+          <button id="btn">Agregar</button>
+          <ul id="lista"></ul>
+        </div>
+        <script>
+          const input = document.querySelector("#txt");
+          function addItem() {
+            const item = input.value;
+            const li = document.createElement("li");
+            li.textContent = text;
+            document.querySelector("#lista").append(li);
+            input.value = "";
+          }
+          document.querySelector("#btn").addEventListener("click", () => {
+            addItem();
+          });
+          input.addEventListener("keyup", (e) => {
+            console.log(e);
+            if (e.key === "Enter") {
+              addItem();
+            }
+          });
+        </script>
+
+        <hr />
+
+        <form id="form">
+          <h3>Modo Form</h3>
+          <input name="item" type="text" />
+          <button>Agregar</button>
+        </form>
+        <ul id="lista-form"></ul>
+        <script>
+          document.querySelector("#form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const item = formData.get("item");
+            const li = document.createElement("li");
+            li.textContent = item;
+            document.querySelector("#lista-form").append(li);
+            e.target.reset();
+          });
+        </script>
+      </div>
+
+      <div>
+        <div id="root"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
