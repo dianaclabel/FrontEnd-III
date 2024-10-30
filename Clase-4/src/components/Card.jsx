@@ -1,11 +1,10 @@
-export default function Card(props){
-  console.log(props);
-  
-  return(
+
+const Card = ({children}) => {
+  return (
     <article>
-      {/* <h2>card</h2>
-      <img src="" alt="" /> */}
+      {children}
     </article>
   )
 }
+export default Card
 

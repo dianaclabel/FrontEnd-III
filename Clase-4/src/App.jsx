@@ -1,28 +1,35 @@
 import './App.css'
-import Navbard from './components/NavBar'
-import Title from "./components/Title"
 import Button from './components/Button'
-import Card from "./components/Card"
-import Greeting from "./components/Greeting"
+import Card from './components/Card'
+import Navbar from './components/Navbar'
+import Title from './components/Title'
 
 function App() {
-  return(
+
+  return (
     <>
-      <Navbard/>
+      <Navbar />
       <main>
-        <Title/>
-        <Button text={"text por medio de props"} numero={10}/>
-        <Card>
-          <h2>Titulo desde children</h2>
-          <p>contenidso desde children</p>
-        </Card>
-        <Card/>
-        <Greeting name={"Diana"}/>
+      
+
+      <Title />
+      <Button text='text por medio de props' numero={10} />
+        <Button text='button 2' numero={12} />
+        
+
+      <Button text='otro dato' numero={5} />
+
+
+
+      <Card>
+       <Button text='button 1' numero={1} />
+      </Card>
+
+
       </main>
+      
     </>
   )
-
-  
 }
 
 export default App
