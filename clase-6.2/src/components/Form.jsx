@@ -20,7 +20,7 @@ export const Form = () => {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const regexAge = /^[0-9]{2}$/;
 
@@ -30,9 +30,8 @@ export const Form = () => {
       poke: form.poke.trim().length <= 3,
     };
 
-    setErrors(upgradeErrors);
-
-    if (Object.values(errors).some((error) => error)) {
+    if (Object.values(upgradeErrors).some((error) => error)) {
+      setErrors(upgradeErrors);
       return;
     }
 
@@ -46,25 +45,34 @@ export const Form = () => {
     <>
       <h1></h1>
       <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre</label>
-        <input type="text" id="name" name="name" onChange={handleChange} />
-        {errors.name && <p>Coloca tu nombre</p>}
-        <label htmlFor="age">Edad</label>
-        <input type="number" id="age" name="age" onChange={handleChange} />
-        {errors.age && <p>Coloca tu edad</p>}
+        <div>
+          <label htmlFor="name">Nombre</label>
+          <input type="text" id="name" name="name" onChange={handleChange} />
+          {errors.name && <p>Coloca tu nombre</p>}
+        </div>
 
-        <label htmlFor="poke">Pokemón Favorito</label>
-        <input type="text" id="poke" name="poke" onChange={handleChange} />
-        {errors.poke && <p>Coloca tu Pokemon</p>}
+        <div>
+          <label htmlFor="age">Edad</label>
+          <input type="number" id="age" name="age" onChange={handleChange} />
+          {errors.age && <p>Coloca tu edad</p>}
+        </div>
 
-        <button type="submit">Enviar</button>
+        <div>
+          <label htmlFor="poke">Pokemón Favorito</label>
+          <input type="text" id="poke" name="poke" onChange={handleChange} />
+          {errors.poke && <p>Coloca tu Pokemon</p>}
+        </div>
+
+        <div>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </>
   ) : (
-    <div className={style.showRegistro}>
+    <article>
       <p>Nombre: {form.name}</p>
       <p>Edad: {form.age}</p>
       <p>Pokemón: {form.poke}</p>
-    </div>
+    </article>
   );
 };
